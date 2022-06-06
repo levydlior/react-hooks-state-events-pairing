@@ -10,3 +10,9 @@ body {
 .App {
   text-align: center;
 }
+
+#Comments {
+  border-top: solid black;
+  padding: 5px;
+  margin: 5px;
+}

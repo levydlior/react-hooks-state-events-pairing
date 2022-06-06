@@ -1,18 +1,23 @@
 import video from "../data/video.js";
+import React, { useState } from "react";
+import Header from "./Header.js";
+import Main from "./Main.js";
 
 function App() {
-  console.log("Here's your data:", video);
+  // console.log("Here's your data:", video);
 
+  const [videoDetails, setVideoDetails] = useState(video);
+  const [hideComments,setHideComments] = useState(false)
+  
+  function handleButtonClick(e){
+    setHideComments(!hideComments)
+    console.log(hideComments)
+  }
+  
   return (
     <div className="App">
-      <iframe
-        width="919"
-        height="525"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        frameBorder="0"
-        allowFullScreen
-        title="Thinking in React"
-      />
+      <Header video={video} />
+      <Main video={video} hideComments={hideComments} onButtonChange={handleButtonClick} />
     </div>
   );
 }
